@@ -1,0 +1,1 @@
+{"darkMode":true,"autoSave":true,"language":"English","notifications":true,"sound":true}
