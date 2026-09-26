@@ -1,0 +1,12 @@
+{
+    "id": 1,
+    "name": "Admin Manager",
+    "email": "admin@managementmadeeasy.com",
+    "phone": "+91 98765 43210",
+    "role": "Administrator",
+    "department": "Inventory Management",
+    "location": "Main Warehouse",
+    "status": "Active",
+    "lastLogin": "Today, 10:30 AM",
+    "memberSince": "September 2026"
+}

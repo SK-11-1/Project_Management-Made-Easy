@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Management Made Easy</title>
+
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>Management</h2>
+            <span>Made Easy</span>
+        </div>
+
+        <nav>
+            <a href="#">Dashboard</a>
+            <a href="#">Products</a>
+            <a href="#">Receipts</a>
+            <a href="#">Deliveries</a>
+            <a href="#">Transfers</a>
+            <a href="#">Settings</a>
+            <a href="#" class="active">Profile</a>
+        </nav>
+
+        <div class="logout">
+            <a href="#">Logout</a>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="topbar">
+            <div>
+                <h1>My Profile</h1>
+                <p>Manage your account information</p>
+            </div>
+
+            <div class="user-mini">
+                <div class="mini-avatar">AM</div>
+                <div>
+                    <strong>Admin Manager</strong>
+                    <small>Administrator</small>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- Profile Section -->
+        <section class="profile-container">
+
+            <!-- Profile Card -->
+            <div class="profile-card">
+
+                <div class="profile-header">
+
+                    <div class="profile-avatar">
+                        AM
+                    </div>
+
+                    <div>
+                        <h2>Admin Manager</h2>
+                        <p>Administrator</p>
+                    </div>
+
+                </div>
+
+                <div class="profile-stats">
+
+                    <div>
+                        <strong>24</strong>
+                        <span>Products</span>
+                    </div>
+
+                    <div>
+                        <strong>12</strong>
+                        <span>Transfers</span>
+                    </div>
+
+                    <div>
+                        <strong>8</strong>
+                        <span>Activities</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Personal Information -->
+            <div class="information-card">
+
+                <div class="card-title">
+                    <h2>Personal Information</h2>
+                    <button>Edit Profile</button>
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" value="Admin Manager">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" value="admin@managementmadeeasy.com">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="text" value="+91 98765 43210">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Role</label>
+                        <input type="text" value="Administrator" readonly>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Department</label>
+                        <input type="text" value="Inventory Management">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Location</label>
+                        <input type="text" value="Main Warehouse">
+                    </div>
+
+                </div>
+
+                <div class="buttons">
+                    <button class="cancel-btn">Cancel</button>
+                    <button class="save-btn">Save Changes</button>
+                </div>
+
+            </div>
+
+
+            <!-- Account Information -->
+            <div class="information-card">
+
+                <div class="card-title">
+                    <h2>Account Information</h2>
+                </div>
+
+                <div class="account-row">
+                    <div>
+                        <strong>Account Status</strong>
+                        <p>Your account is currently active.</p>
+                    </div>
+
+                    <span class="status active-status">Active</span>
+                </div>
+
+                <div class="account-row">
+                    <div>
+                        <strong>Last Login</strong>
+                        <p>Today, 10:30 AM</p>
+                    </div>
+                </div>
+
+                <div class="account-row">
+                    <div>
+                        <strong>Member Since</strong>
+                        <p>September 2026</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
