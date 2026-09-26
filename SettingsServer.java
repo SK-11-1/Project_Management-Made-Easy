@@ -167,10 +167,8 @@ public class SettingsServer {
                 bytes.length
         );
 
-        OutputStream output =
-                exchange.getResponseBody();
-
-        output.write(bytes);
-        output.close();
+        try (OutputStream output = exchange.getResponseBody()) {
+            output.write(bytes);
+        }
     }
 }
