@@ -8,7 +8,7 @@
 
 ```
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="products.css">
+<link rel="stylesheet" href="Product.css">
 ```
 
 </head>
@@ -28,12 +28,17 @@
     </div>
 
     <nav>
-        <a href="index.html">📊 Dashboard</a>
-        <a href="products.html" class="active">📦 Products</a>
-        <a href="#">🚚 Receipts</a>
-        <a href="#">📤 Deliveries</a>
-        <a href="#">🔄 Transfers</a>
-        <a href="#">⚙️ Settings</a>
+        <a href="dashboard.html">📊 Dashboard</a>
+
+    <a href="Product.html" class="active">📦 Products</a>
+
+    <a href="Receipt.html">🚚 Receipts</a>
+
+    <a href="deliveries.html">📤 Deliveries</a>
+
+    <a href="transfers.html">🔄 Transfers</a>
+
+    <a href="settings.html">⚙️ Settings</a>
     </nav>
 
     <div class="sidebar-bottom">
@@ -146,135 +151,7 @@
 
                 <tbody>
 
-                    <tr>
-                        <td>
-                            <div class="product-name">
-                                <div class="product-icon">🔩</div>
-                                <strong>Steel Rods</strong>
-                            </div>
-                        </td>
-
-                        <td>STL-001</td>
-                        <td>Raw Material</td>
-                        <td>250 units</td>
-
-                        <td>
-                            <span class="status in-stock">
-                                In Stock
-                            </span>
-                        </td>
-
-                        <td>Main Warehouse</td>
-
-                        <td>
-                            <button class="action-btn">View</button>
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <td>
-                            <div class="product-name">
-                                <div class="product-icon">🪑</div>
-                                <strong>Office Chairs</strong>
-                            </div>
-                        </td>
-
-                        <td>CHR-102</td>
-                        <td>Furniture</td>
-                        <td>18 units</td>
-
-                        <td>
-                            <span class="status low-stock">
-                                Low Stock
-                            </span>
-                        </td>
-
-                        <td>Main Warehouse</td>
-
-                        <td>
-                            <button class="action-btn">View</button>
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <td>
-                            <div class="product-name">
-                                <div class="product-icon">💻</div>
-                                <strong>Laptops</strong>
-                            </div>
-                        </td>
-
-                        <td>LAP-205</td>
-                        <td>Electronics</td>
-                        <td>0 units</td>
-
-                        <td>
-                            <span class="status out-stock">
-                                Out of Stock
-                            </span>
-                        </td>
-
-                        <td>Production Rack</td>
-
-                        <td>
-                            <button class="action-btn">View</button>
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <td>
-                            <div class="product-name">
-                                <div class="product-icon">🧰</div>
-                                <strong>Tool Kit</strong>
-                            </div>
-                        </td>
-
-                        <td>TLK-301</td>
-                        <td>Raw Material</td>
-                        <td>85 units</td>
-
-                        <td>
-                            <span class="status in-stock">
-                                In Stock
-                            </span>
-                        </td>
-
-                        <td>Main Warehouse</td>
-
-                        <td>
-                            <button class="action-btn">View</button>
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <td>
-                            <div class="product-name">
-                                <div class="product-icon">🖥️</div>
-                                <strong>Monitors</strong>
-                            </div>
-                        </td>
-
-                        <td>MON-410</td>
-                        <td>Electronics</td>
-                        <td>7 units</td>
-
-                        <td>
-                            <span class="status low-stock">
-                                Low Stock
-                            </span>
-                        </td>
-
-                        <td>Production Rack</td>
-
-                        <td>
-                            <button class="action-btn">View</button>
-                        </td>
-                    </tr>
-
+                   
                 </tbody>
 
             </table>
@@ -286,61 +163,7 @@
 </main>
 
 
-<script>
-
-    function searchProducts() {
-
-        let input =
-            document.getElementById("searchInput")
-            .value
-            .toLowerCase();
-
-        let rows =
-            document.querySelectorAll("#productsTable tbody tr");
-
-        rows.forEach(row => {
-
-            let text = row.innerText.toLowerCase();
-
-            row.style.display =
-                text.includes(input) ? "" : "none";
-
-        });
-
-    }
-
-
-    function filterProducts() {
-
-        let filter =
-            document.getElementById("categoryFilter").value;
-
-        let rows =
-            document.querySelectorAll("#productsTable tbody tr");
-
-        rows.forEach(row => {
-
-            let category = row.cells[2].innerText;
-
-            if (filter === "all" || category === filter) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-
-        });
-
-    }
-
-
-    function addProduct() {
-
-        alert("Add Product form coming next!");
-
-    }
-
-</script>
-```
+<script src="Products.js"></script>
 
 </body>
 </html>

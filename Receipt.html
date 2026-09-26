@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Made Easy - Receipts</title>
+
+```
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="Receipt.css">
+```
+
+</head>
+
+<body>
+
+```
+<!-- Sidebar -->
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">M</div>
+        <div>
+            <h2>Management</h2>
+            <span>Made Easy</span>
+        </div>
+    </div>
+
+    <nav>
+        <a href="dashboard.html">📊 Dashboard</a>
+
+    <a href="Product.html">📦 Products</a>
+
+    <a href="Receipt.html" class="active">🚚 Receipts</a>
+
+    <a href="deliveries.html">📤 Deliveries</a>
+
+    <a href="transfers.html">🔄 Transfers</a>
+
+    <a href="settings.html">⚙️ Settings</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <a href="#">👤 My Profile</a>
+        <a href="#">🚪 Logout</a>
+    </div>
+
+</aside>
+
+
+<!-- Main -->
+<main class="main">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div>
+            <h1>Receipts</h1>
+            <p>Manage incoming stock and received products.</p>
+        </div>
+
+        <div class="user">
+            <div class="avatar">A</div>
+            <div>
+                <strong>Admin</strong>
+                <small>Inventory Manager</small>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Receipt Controls -->
+    <section class="receipt-controls">
+
+        <div class="search-box">
+            🔍
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search receipts..."
+                onkeyup="filterReceipts()"
+            >
+        </div>
+
+        <button class="new-receipt-btn" onclick="openReceiptModal()">
+            + New Receipt
+        </button>
+
+    </section>
+
+
+    <!-- Statistics -->
+    <section class="receipt-stats">
+
+        <div class="stat-card">
+            <span>Total Receipts</span>
+            <strong id="totalReceipts">18</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Pending</span>
+            <strong class="stat-orange" id="pendingReceipts">6</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Received</span>
+            <strong class="stat-green" id="receivedReceipts">10</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Cancelled</span>
+            <strong class="stat-red" id="cancelledReceipts">2</strong>
+        </div>
+
+    </section>
+
+
+    <!-- Receipts Table -->
+    <section class="panel">
+
+        <div class="panel-header">
+            <div>
+                <h2>Incoming Receipts</h2>
+                <p>Track incoming inventory shipments</p>
+            </div>
+
+            <select id="statusFilter" onchange="filterReceipts()">
+                <option value="all">All Status</option>
+                <option value="Pending">Pending</option>
+                <option value="Received">Received</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+        </div>
+
+
+        <div class="table-container">
+
+            <table id="receiptsTable">
+
+                <thead>
+                    <tr>
+                        <th>Receipt ID</th>
+                        <th>Supplier</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Date</th>
+                        <th>Warehouse</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="receiptBody">
+
+                    <tr>
+                        <td><strong>#REC-001</strong></td>
+                        <td>Tata Steel</td>
+                        <td>Steel Rods</td>
+                        <td>50 units</td>
+                        <td>26 Sep 2026</td>
+                        <td>Main Warehouse</td>
+                        <td>
+                            <span class="status received">Received</span>
+                        </td>
+                        <td>
+                            <button class="action-btn">View</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>#REC-002</strong></td>
+                        <td>Office Solutions</td>
+                        <td>Office Chairs</td>
+                        <td>25 units</td>
+                        <td>26 Sep 2026</td>
+                        <td>Main Warehouse</td>
+                        <td>
+                            <span class="status pending">Pending</span>
+                        </td>
+                        <td>
+                            <button class="action-btn">View</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>#REC-003</strong></td>
+                        <td>TechWorld</td>
+                        <td>Monitors</td>
+                        <td>15 units</td>
+                        <td>25 Sep 2026</td>
+                        <td>Production Rack</td>
+                        <td>
+                            <span class="status received">Received</span>
+                        </td>
+                        <td>
+                            <button class="action-btn">View</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>#REC-004</strong></td>
+                        <td>Hardware Hub</td>
+                        <td>Tool Kit</td>
+                        <td>30 units</td>
+                        <td>24 Sep 2026</td>
+                        <td>Main Warehouse</td>
+                        <td>
+                            <span class="status pending">Pending</span>
+                        </td>
+                        <td>
+                            <button class="action-btn">View</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>#REC-005</strong></td>
+                        <td>TechWorld</td>
+                        <td>Laptops</td>
+                        <td>10 units</td>
+                        <td>22 Sep 2026</td>
+                        <td>Production Rack</td>
+                        <td>
+                            <span class="status cancelled">Cancelled</span>
+                        </td>
+                        <td>
+                            <button class="action-btn">View</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- New Receipt Modal -->
+<div class="modal-overlay" id="receiptModal">
+
+    <div class="modal">
+
+        <div class="modal-header">
+            <div>
+                <h2>New Receipt</h2>
+                <p>Add incoming stock to your inventory.</p>
+            </div>
+
+            <button class="close-btn" onclick="closeReceiptModal()">×</button>
+        </div>
+
+
+        <form id="receiptForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Supplier</label>
+                    <input
+                        type="text"
+                        id="supplier"
+                        placeholder="Enter supplier name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Product</label>
+                    <input
+                        type="text"
+                        id="product"
+                        placeholder="Enter product name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input
+                        type="number"
+                        id="quantity"
+                        placeholder="Enter quantity"
+                        min="1"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Date</label>
+                    <input
+                        type="date"
+                        id="receiptDate"
+                        required
+                    >
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Warehouse</label>
+
+                    <select id="warehouse" required>
+                        <option value="">Select warehouse</option>
+                        <option>Main Warehouse</option>
+                        <option>Production Rack</option>
+                        <option>Secondary Warehouse</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    onclick="closeReceiptModal()"
+                >
+                    Cancel
+                </button>
+
+                <button type="submit" class="save-btn">
+                    Create Receipt
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    // Open modal
+    function openReceiptModal() {
+        document.getElementById("receiptModal").style.display = "flex";
+
+        // Set today's date
+        document.getElementById("receiptDate").value =
+            new Date().toISOString().split("T")[0];
+    }
+
+
+    // Close modal
+    function closeReceiptModal() {
+        document.getElementById("receiptModal").style.display = "none";
+    }
+
+
+    // Create receipt
+    document.getElementById("receiptForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const supplier =
+            document.getElementById("supplier").value;
+
+        const product =
+            document.getElementById("product").value;
+
+        const quantity =
+            document.getElementById("quantity").value;
+
+        const date =
+            document.getElementById("receiptDate").value;
+
+        const warehouse =
+            document.getElementById("warehouse").value;
+
+
+        const table =
+            document.getElementById("receiptBody");
+
+        const receiptNumber =
+            table.rows.length + 6;
+
+        const formattedDate =
+            new Date(date).toLocaleDateString("en-GB", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric"
+            });
+
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td><strong>#REC-${String(receiptNumber).padStart(3, "0")}</strong></td>
+            <td>${supplier}</td>
+            <td>${product}</td>
+            <td>${quantity} units</td>
+            <td>${formattedDate}</td>
+            <td>${warehouse}</td>
+            <td>
+                <span class="status pending">Pending</span>
+            </td>
+            <td>
+                <button class="action-btn">View</button>
+            </td>
+        `;
+
+
+        table.prepend(row);
+
+        updateStats();
+
+        document.getElementById("receiptForm").reset();
+
+        closeReceiptModal();
+
+        alert("Receipt created successfully!");
+
+    });
+
+
+    // Search + status filter
+    function filterReceipts() {
+
+        const search =
+            document.getElementById("searchInput")
+            .value
+            .toLowerCase();
+
+        const status =
+            document.getElementById("statusFilter")
+            .value;
+
+        const rows =
+            document.querySelectorAll("#receiptBody tr");
+
+
+        rows.forEach(row => {
+
+            const text =
+                row.innerText.toLowerCase();
+
+            const rowStatus =
+                row.querySelector(".status").innerText;
+
+            const matchesSearch =
+                text.includes(search);
+
+            const matchesStatus =
+                status === "all" ||
+                rowStatus === status;
+
+            row.style.display =
+                matchesSearch && matchesStatus
+                ? ""
+                : "none";
+
+        });
+
+    }
+
+
+    // Update statistics
+    function updateStats() {
+
+        const rows =
+            document.querySelectorAll("#receiptBody tr");
+
+        let pending = 0;
+        let received = 0;
+        let cancelled = 0;
+
+
+        rows.forEach(row => {
+
+            const status =
+                row.querySelector(".status").innerText;
+
+            if (status === "Pending") pending++;
+            if (status === "Received") received++;
+            if (status === "Cancelled") cancelled++;
+
+        });
+
+
+        document.getElementById("totalReceipts").innerText =
+            rows.length;
+
+        document.getElementById("pendingReceipts").innerText =
+            pending;
+
+        document.getElementById("receivedReceipts").innerText =
+            received;
+
+        document.getElementById("cancelledReceipts").innerText =
+            cancelled;
+
+    }
+
+
+    document.getElementById("receiptModal").addEventListener("click", function(event) {
+
+        if (event.target === this) {
+            closeReceiptModal();
+        }
+
+    });
+
+</script>
+```
+
+</body>
+</html>
