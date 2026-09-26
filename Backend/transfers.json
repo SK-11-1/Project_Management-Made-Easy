@@ -1,0 +1,29 @@
+[
+  {
+    "id": "TRF-001",
+    "product": "Steel Rods",
+    "quantity": 50,
+    "from": "Main Warehouse",
+    "to": "Production Rack",
+    "date": "26 Sep 2026",
+    "status": "Completed"
+  },
+  {
+    "id": "TRF-002",
+    "product": "Office Chairs",
+    "quantity": 10,
+    "from": "Main Warehouse",
+    "to": "Production Rack",
+    "date": "26 Sep 2026",
+    "status": "Pending"
+  },
+  {
+    "id": "TRF-003",
+    "product": "Monitors",
+    "quantity": 5,
+    "from": "Secondary Warehouse",
+    "to": "Main Warehouse",
+    "date": "25 Sep 2026",
+    "status": "Completed"
+  }
+]

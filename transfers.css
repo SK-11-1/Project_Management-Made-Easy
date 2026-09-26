@@ -1,0 +1,382 @@
+/* CONTROLS */
+
+.transfer-controls {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 25px;
+}
+
+.search-box {
+width: 350px;
+background: white;
+border: 1px solid #e5e7eb;
+border-radius: 10px;
+padding: 11px 15px;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.search-box input {
+border: none;
+outline: none;
+width: 100%;
+font-size: 14px;
+}
+
+.new-transfer-btn {
+background: #4f46e5;
+color: white;
+border: none;
+padding: 12px 18px;
+border-radius: 9px;
+font-size: 14px;
+cursor: pointer;
+}
+
+.new-transfer-btn:hover {
+background: #4338ca;
+}
+
+/* STATISTICS */
+
+.transfer-stats {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 18px;
+margin-bottom: 25px;
+}
+
+.stat-card {
+background: white;
+padding: 20px;
+border-radius: 14px;
+box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+}
+
+.stat-card span {
+display: block;
+color: #6b7280;
+font-size: 13px;
+margin-bottom: 8px;
+}
+
+.stat-card strong {
+font-size: 26px;
+}
+
+.stat-green {
+color: #16a34a;
+}
+
+.stat-orange {
+color: #ea580c;
+}
+
+/* TABLE */
+
+.table-container {
+overflow-x: auto;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+thead {
+background: #f9fafb;
+}
+
+th {
+text-align: left;
+padding: 14px;
+font-size: 12px;
+color: #6b7280;
+}
+
+td {
+padding: 16px 14px;
+border-top: 1px solid #f0f0f0;
+font-size: 13px;
+white-space: nowrap;
+}
+
+/* STATUS */
+
+.status {
+padding: 5px 10px;
+border-radius: 20px;
+font-size: 11px;
+font-weight: 600;
+}
+
+.status.pending {
+background: #ffedd5;
+color: #c2410c;
+}
+
+.status.completed {
+background: #dcfce7;
+color: #15803d;
+}
+
+.status.cancelled {
+background: #fee2e2;
+color: #b91c1c;
+}
+
+/* BUTTONS */
+
+.action-btn,
+.complete-btn {
+border: none;
+padding: 7px 12px;
+border-radius: 7px;
+cursor: pointer;
+}
+
+.action-btn {
+background: #eef2ff;
+color: #4f46e5;
+}
+
+.complete-btn {
+background: #dcfce7;
+color: #15803d;
+}
+
+.action-btn:hover {
+background: #4f46e5;
+color: white;
+}
+
+.complete-btn:hover {
+background: #16a34a;
+color: white;
+}
+
+/* FILTER */
+
+#statusFilter {
+border: 1px solid #e5e7eb;
+background: white;
+padding: 9px 12px;
+border-radius: 8px;
+outline: none;
+}
+
+/* MODAL */
+
+.modal-overlay {
+position: fixed;
+inset: 0;
+background: rgba(17, 24, 39, 0.55);
+
+
+display: none;
+
+align-items: center;
+justify-content: center;
+
+z-index: 1000;
+
+
+}
+
+.modal {
+width: 600px;
+max-width: 90%;
+
+
+background: white;
+
+border-radius: 16px;
+
+padding: 25px;
+
+box-shadow:
+    0 20px 50px rgba(0,0,0,0.2);
+
+
+}
+
+.modal-header {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+
+
+margin-bottom: 25px;
+
+
+}
+
+.modal-header h2 {
+margin-bottom: 5px;
+}
+
+.modal-header p {
+color: #6b7280;
+font-size: 13px;
+}
+
+.close-btn {
+border: none;
+
+
+background: #f3f4f6;
+
+width: 34px;
+height: 34px;
+
+border-radius: 50%;
+
+font-size: 22px;
+
+cursor: pointer;
+
+
+}
+
+/* FORM */
+
+.form-grid {
+display: grid;
+
+
+grid-template-columns: 1fr 1fr;
+
+gap: 18px;
+
+
+}
+
+.form-group {
+display: flex;
+flex-direction: column;
+
+gap: 7px;
+
+
+}
+
+.form-group label {
+font-size: 13px;
+font-weight: 600;
+
+color: #374151;
+
+
+}
+
+.form-group input,
+.form-group select {
+padding: 11px;
+
+
+border: 1px solid #d1d5db;
+
+border-radius: 8px;
+
+outline: none;
+
+font-size: 14px;
+
+
+}
+
+.form-group input:focus,
+.form-group select:focus {
+border-color: #4f46e5;
+}
+
+.full-width {
+grid-column: 1 / -1;
+}
+
+/* MODAL ACTIONS */
+
+.modal-actions {
+display: flex;
+justify-content: flex-end;
+
+
+gap: 10px;
+
+margin-top: 25px;
+
+
+}
+
+.cancel-btn {
+border: 1px solid #d1d5db;
+
+
+background: white;
+
+padding: 10px 18px;
+
+border-radius: 8px;
+
+cursor: pointer;
+
+
+}
+
+.save-btn {
+border: none;
+
+
+background: #4f46e5;
+
+color: white;
+
+padding: 10px 18px;
+
+border-radius: 8px;
+
+cursor: pointer;
+
+
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+.transfer-stats {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+}
+
+@media (max-width: 700px) {
+
+.transfer-controls {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 12px;
+}
+
+.search-box {
+    width: 100%;
+}
+
+.transfer-stats {
+    grid-template-columns: 1fr;
+}
+
+.form-grid {
+    grid-template-columns: 1fr;
+}
+
+.full-width {
+    grid-column: auto;
+}
+
+
+}

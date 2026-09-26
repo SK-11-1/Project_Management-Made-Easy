@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Management Made Easy - Transfers</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="transfers.css">
+```
+
+</head>
+
+<body>
+
+```
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">M</div>
+
+        <div>
+            <h2>Management</h2>
+            <span>Made Easy</span>
+        </div>
+    </div>
+
+    <nav>
+
+        <a href="index.html">📊 Dashboard</a>
+
+        <a href="products.html">📦 Products</a>
+
+        <a href="receipts.html">🚚 Receipts</a>
+
+        <a href="#">📤 Deliveries</a>
+
+        <a href="transfers.html" class="active">
+            🔄 Transfers
+        </a>
+
+        <a href="#">⚙️ Settings</a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <a href="#">👤 My Profile</a>
+
+        <a href="#">🚪 Logout</a>
+
+    </div>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main class="main">
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <div>
+
+            <h1>Stock Transfers</h1>
+
+            <p>
+                Move inventory between warehouses and storage locations.
+            </p>
+
+        </div>
+
+        <div class="user">
+
+            <div class="avatar">
+                A
+            </div>
+
+            <div>
+
+                <strong>Admin</strong>
+
+                <small>
+                    Inventory Manager
+                </small>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTROLS -->
+
+    <section class="transfer-controls">
+
+        <div class="search-box">
+
+            🔍
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search transfers..."
+                oninput="filterTransfers()"
+            >
+
+        </div>
+
+        <button
+            class="new-transfer-btn"
+            onclick="openTransferModal()"
+        >
+            + New Transfer
+        </button>
+
+    </section>
+
+
+    <!-- STATISTICS -->
+
+    <section class="transfer-stats">
+
+        <div class="stat-card">
+
+            <span>Total Transfers</span>
+
+            <strong id="totalTransfers">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>Pending</span>
+
+            <strong
+                class="stat-orange"
+                id="pendingTransfers"
+            >
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>Completed</span>
+
+            <strong
+                class="stat-green"
+                id="completedTransfers"
+            >
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>Total Units Moved</span>
+
+            <strong id="totalUnits">
+                0
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRANSFERS TABLE -->
+
+    <section class="panel">
+
+        <div class="panel-header">
+
+            <div>
+
+                <h2>Transfer History</h2>
+
+                <p>
+                    Track inventory movement between locations.
+                </p>
+
+            </div>
+
+
+            <select
+                id="statusFilter"
+                onchange="filterTransfers()"
+            >
+
+                <option value="all">
+                    All Status
+                </option>
+
+                <option value="Pending">
+                    Pending
+                </option>
+
+                <option value="Completed">
+                    Completed
+                </option>
+
+                <option value="Cancelled">
+                    Cancelled
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Transfer ID</th>
+
+                        <th>Product</th>
+
+                        <th>Quantity</th>
+
+                        <th>From</th>
+
+                        <th>To</th>
+
+                        <th>Date</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="transferTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- NEW TRANSFER MODAL -->
+
+<div
+    class="modal-overlay"
+    id="transferModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2>
+                    New Stock Transfer
+                </h2>
+
+                <p>
+                    Move stock from one location to another.
+                </p>
+
+            </div>
+
+            <button
+                class="close-btn"
+                onclick="closeTransferModal()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="transferForm">
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Product
+                    </label>
+
+                    <input
+                        type="text"
+                        id="product"
+                        placeholder="e.g. Steel Rods"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Quantity
+                    </label>
+
+                    <input
+                        type="number"
+                        id="quantity"
+                        min="1"
+                        placeholder="Enter quantity"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        From
+                    </label>
+
+                    <select
+                        id="from"
+                        required
+                    >
+
+                        <option value="">
+                            Select source
+                        </option>
+
+                        <option>
+                            Main Warehouse
+                        </option>
+
+                        <option>
+                            Production Rack
+                        </option>
+
+                        <option>
+                            Secondary Warehouse
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        To
+                    </label>
+
+                    <select
+                        id="to"
+                        required
+                    >
+
+                        <option value="">
+                            Select destination
+                        </option>
+
+                        <option>
+                            Main Warehouse
+                        </option>
+
+                        <option>
+                            Production Rack
+                        </option>
+
+                        <option>
+                            Secondary Warehouse
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group full-width">
+
+                    <label>
+                        Transfer Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        required
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    onclick="closeTransferModal()"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                >
+                    Create Transfer
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    const API_URL = "http://localhost:5000/api/transfers";
+
+
+    // Load transfers
+
+    async function loadTransfers() {
+
+        try {
+
+            const response =
+                await fetch(API_URL);
+
+            const transfers =
+                await response.json();
+
+            displayTransfers(transfers);
+
+            updateStats(transfers);
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert(
+                "Could not connect to the backend. Make sure the server is running."
+            );
+
+        }
+
+    }
+
+
+    // Display transfers
+
+    function displayTransfers(transfers) {
+
+        const table =
+            document.getElementById("transferTable");
+
+        table.innerHTML = "";
+
+
+        transfers.forEach(transfer => {
+
+            const row =
+                document.createElement("tr");
+
+            row.innerHTML = `
+
+                <td>
+                    <strong>
+                        ${transfer.id}
+                    </strong>
+                </td>
+
+                <td>
+                    ${transfer.product}
+                </td>
+
+                <td>
+                    ${transfer.quantity} units
+                </td>
+
+                <td>
+                    ${transfer.from}
+                </td>
+
+                <td>
+                    ${transfer.to}
+                </td>
+
+                <td>
+                    ${transfer.date}
+                </td>
+
+                <td>
+
+                    <span class="status ${transfer.status.toLowerCase()}">
+
+                        ${transfer.status}
+
+                    </span>
+
+                </td>
+
+                <td>
+
+                    ${
+                        transfer.status === "Pending"
+
+                        ?
+
+                        `<button
+                            class="complete-btn"
+                            onclick="completeTransfer('${transfer.id}')"
+                        >
+                            Complete
+                        </button>`
+
+                        :
+
+                        `<button
+                            class="action-btn"
+                            onclick="viewTransfer('${transfer.id}')"
+                        >
+                            View
+                        </button>`
+                    }
+
+                </td>
+
+            `;
+
+            table.appendChild(row);
+
+        });
+
+    }
+
+
+    // Create transfer
+
+    document
+        .getElementById("transferForm")
+        .addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+
+            const product =
+                document.getElementById("product").value;
+
+            const quantity =
+                Number(
+                    document.getElementById("quantity").value
+                );
+
+            const from =
+                document.getElementById("from").value;
+
+            const to =
+                document.getElementById("to").value;
+
+            const date =
+                document.getElementById("date").value;
+
+
+            if (from === to) {
+
+                alert(
+                    "Source and destination cannot be the same."
+                );
+
+                return;
+
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(API_URL, {
+
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+
+                            product,
+                            quantity,
+                            from,
+                            to,
+                            date
+
+                        })
+
+                    });
+
+
+                if (!response.ok) {
+
+                    const error =
+                        await response.json();
+
+                    alert(error.message);
+
+                    return;
+
+                }
+
+
+                closeTransferModal();
+
+                document
+                    .getElementById("transferForm")
+                    .reset();
+
+                await loadTransfers();
+
+
+                alert(
+                    "Transfer created successfully!"
+                );
+
+
+            } catch (error) {
+
+                console.error(error);
+
+                alert(
+                    "Could not create transfer."
+                );
+
+            }
+
+        });
+
+
+    // Complete transfer
+
+    async function completeTransfer(id) {
+
+        try {
+
+            const response =
+                await fetch(
+                    `${API_URL}/${id}`,
+                    {
+                        method: "PATCH",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            status: "Completed"
+                        })
+                    }
+                );
+
+
+            if (!response.ok) {
+
+                alert(
+                    "Could not complete transfer."
+                );
+
+                return;
+
+            }
+
+
+            await loadTransfers();
+
+        } catch (error) {
+
+            console.error(error);
+
+        }
+
+    }
+
+
+    // View transfer
+
+    async function viewTransfer(id) {
+
+        const response =
+            await fetch(API_URL);
+
+        const transfers =
+            await response.json();
+
+        const transfer =
+            transfers.find(
+                item => item.id === id
+            );
+
+
+        if (!transfer) return;
+
+
+        alert(
+
+            `Transfer: ${transfer.id}\n\n` +
+
+            `Product: ${transfer.product}\n` +
+
+            `Quantity: ${transfer.quantity}\n` +
+
+            `From: ${transfer.from}\n` +
+
+            `To: ${transfer.to}\n` +
+
+            `Date: ${transfer.date}\n` +
+
+            `Status: ${transfer.status}`
+
+        );
+
+    }
+
+
+    // Search and status filter
+
+    async function filterTransfers() {
+
+        const response =
+            await fetch(API_URL);
+
+        let transfers =
+            await response.json();
+
+
+        const search =
+            document
+                .getElementById("searchInput")
+                .value
+                .toLowerCase();
+
+
+        const status =
+            document
+                .getElementById("statusFilter")
+                .value;
+
+
+        transfers =
+            transfers.filter(transfer => {
+
+                const text =
+                    JSON.stringify(transfer)
+                        .toLowerCase();
+
+                const matchesSearch =
+                    text.includes(search);
+
+                const matchesStatus =
+                    status === "all" ||
+                    transfer.status === status;
+
+
+                return (
+                    matchesSearch &&
+                    matchesStatus
+                );
+
+            });
+
+
+        displayTransfers(transfers);
+
+    }
+
+
+    // Statistics
+
+    function updateStats(transfers) {
+
+        const pending =
+            transfers.filter(
+                t => t.status === "Pending"
+            ).length;
+
+
+        const completed =
+            transfers.filter(
+                t => t.status === "Completed"
+            ).length;
+
+
+        const units =
+            transfers.reduce(
+                (total, t) =>
+                    total + Number(t.quantity),
+                0
+            );
+
+
+        document
+            .getElementById("totalTransfers")
+            .innerText =
+            transfers.length;
+
+
+        document
+            .getElementById("pendingTransfers")
+            .innerText =
+            pending;
+
+
+        document
+            .getElementById("completedTransfers")
+            .innerText =
+            completed;
+
+
+        document
+            .getElementById("totalUnits")
+            .innerText =
+            units;
+
+    }
+
+
+    // Modal
+
+    function openTransferModal() {
+
+        document
+            .getElementById("transferModal")
+            .style.display = "flex";
+
+
+        document
+            .getElementById("date")
+            .value =
+            new Date()
+                .toISOString()
+                .split("T")[0];
+
+    }
+
+
+    function closeTransferModal() {
+
+        document
+            .getElementById("transferModal")
+            .style.display = "none";
+
+    }
+
+
+    // Close by clicking outside
+
+    document
+        .getElementById("transferModal")
+        .addEventListener(
+            "click",
+            function(event) {
+
+                if (event.target === this) {
+
+                    closeTransferModal();
+
+                }
+
+            }
+        );
+
+
+    // Initial load
+
+    loadTransfers();
+
+</script>
+```
+
+</body>
+
+</html>
