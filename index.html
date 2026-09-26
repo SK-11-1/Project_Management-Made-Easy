@@ -1,75 +1,991 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Management Made Easy</title>
+<meta charset="UTF-8">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-        body {
-            width: 100%;
-            height: 100vh;
-            background: #050814;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+<title>Management Made Easy - Settings</title>
 
-        .logo-container {
-            width: 650px;
-            max-width: 90%;
-            padding: 50px;
-            border-radius: 30px;
+<style>
 
-            background: rgba(255, 255, 255, 0.03);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-            border: 1px solid rgba(255, 255, 255, 0.08);
+body {
 
-            box-shadow:
-                0 0 60px rgba(35, 150, 255, 0.12),
-                inset 0 0 40px rgba(255, 255, 255, 0.02);
+    min-height: 100vh;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    background:
+        radial-gradient(
+            circle at top right,
+            #18245c,
+            transparent 40%
+        ),
+        #050814;
 
-        .logo-container img {
-            width: 100%;
-            max-width: 520px;
-            height: auto;
-            display: block;
+    color: white;
 
-            filter:
-                drop-shadow(0 0 20px rgba(45, 190, 255, 0.25))
-                drop-shadow(0 0 40px rgba(130, 70, 255, 0.15));
-        }
+    padding: 30px;
+}
 
-        @media (max-width: 600px) {
 
-            .logo-container {
-                padding: 25px;
-            }
+/* MAIN */
 
-        }
-    </style>
+.container {
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: auto;
+}
+
+
+/* HEADER */
+
+.header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+.back {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 12px;
+
+    border: 1px solid #293149;
+
+    background: #101525;
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+.header h1 {
+
+    font-size: 32px;
+}
+
+.header p {
+
+    color: #8b93a7;
+
+    margin-top: 6px;
+}
+
+
+/* CARD */
+
+.card {
+
+    background: rgba(15, 20, 35, 0.95);
+
+    border: 1px solid #252d43;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.25);
+}
+
+
+.title {
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+
+/* PROFILE */
+
+.profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+.avatar {
+
+    width: 65px;
+
+    height: 65px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2878ff,
+            #9b4dff
+        );
+
+    font-size: 25px;
+
+    font-weight: bold;
+}
+
+.profile p {
+
+    color: #8b93a7;
+
+    margin-top: 5px;
+}
+
+
+/* SETTING ROW */
+
+.row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #222a3c;
+}
+
+.row:last-child {
+
+    border-bottom: none;
+}
+
+.info h3 {
+
+    font-size: 16px;
+
+    margin-bottom: 5px;
+}
+
+.info p {
+
+    color: #858da1;
+
+    font-size: 14px;
+}
+
+
+/* SWITCH */
+
+.switch {
+
+    position: relative;
+
+    width: 52px;
+
+    height: 28px;
+}
+
+.switch input {
+
+    display: none;
+}
+
+.slider {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: #30384d;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.slider:before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 22px;
+
+    height: 22px;
+
+    left: 3px;
+
+    top: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: 0.3s;
+}
+
+input:checked + .slider {
+
+    background: #2878ff;
+}
+
+input:checked + .slider:before {
+
+    transform: translateX(24px);
+}
+
+
+/* SELECT */
+
+select {
+
+    background: #151b2b;
+
+    color: white;
+
+    border: 1px solid #30384d;
+
+    border-radius: 10px;
+
+    padding: 10px 15px;
+
+    outline: none;
+
+}
+
+
+/* SAVE */
+
+.save {
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin-top: 20px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2878ff,
+            #8b4dff
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.save:hover {
+
+    transform: translateY(-2px);
+}
+
+
+/* RESET */
+
+.reset {
+
+    padding: 10px 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #e53935;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* MESSAGE */
+
+.message {
+
+    text-align: center;
+
+    margin-top: 15px;
+
+    color: #55d98b;
+
+    min-height: 20px;
+}
+
+
+/* FOOTER */
+
+.footer {
+
+    text-align: center;
+
+    color: #626b80;
+
+    margin-top: 30px;
+
+    font-size: 13px;
+}
+
+
+/* LIGHT MODE */
+
+body.light {
+
+    background: #eef2f8;
+
+    color: #111827;
+}
+
+body.light .card {
+
+    background: white;
+
+    border-color: #dce1eb;
+}
+
+body.light .header p,
+body.light .info p,
+body.light .profile p {
+
+    color: #667085;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    body {
+
+        padding: 15px;
+    }
+
+    .header h1 {
+
+        font-size: 25px;
+    }
+
+    .row {
+
+        gap: 15px;
+    }
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-    <div class="logo-container">
 
-        <img src="logo.png" alt="Management Made Easy Logo">
+<div class="container">
 
-    </div>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<button class="back"
+onclick="history.back()">
+
+←
+
+</button>
+
+<div>
+
+<h1>Settings</h1>
+
+<p>
+Customize your Management Made Easy experience
+</p>
+
+</div>
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div class="card">
+
+<div class="title">
+👤 Profile
+</div>
+
+<div class="profile">
+
+<div class="avatar">
+M
+</div>
+
+<div>
+
+<h3>
+Management User
+</h3>
+
+<p>
+user@management.com
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- GENERAL -->
+
+<div class="card">
+
+<div class="title">
+⚙️ General
+</div>
+
+
+<!-- DARK MODE -->
+
+<div class="row">
+
+<div class="info">
+
+<h3>
+Dark Mode
+</h3>
+
+<p>
+Use dark appearance across the website
+</p>
+
+</div>
+
+
+<label class="switch">
+
+<input
+type="checkbox"
+id="darkMode"
+checked
+onchange="changeTheme()"
+>
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+
+<!-- AUTO SAVE -->
+
+<div class="row">
+
+<div class="info">
+
+<h3>
+Auto Save
+</h3>
+
+<p>
+Automatically save your changes
+</p>
+
+</div>
+
+
+<label class="switch">
+
+<input
+type="checkbox"
+id="autoSave"
+checked
+>
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+
+<!-- LANGUAGE -->
+
+<div class="row">
+
+<div class="info">
+
+<h3>
+Language
+</h3>
+
+<p>
+Select your preferred language
+</p>
+
+</div>
+
+
+<select id="language">
+
+<option>English</option>
+
+<option>Hindi</option>
+
+<option>French</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<!-- NOTIFICATIONS -->
+
+<div class="card">
+
+<div class="title">
+🔔 Notifications
+</div>
+
+
+<div class="row">
+
+<div class="info">
+
+<h3>
+Push Notifications
+</h3>
+
+<p>
+Receive important updates
+</p>
+
+</div>
+
+
+<label class="switch">
+
+<input
+type="checkbox"
+id="notifications"
+checked
+>
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+
+<div class="row">
+
+<div class="info">
+
+<h3>
+Sound
+</h3>
+
+<p>
+Play sound for important notifications
+</p>
+
+</div>
+
+
+<label class="switch">
+
+<input
+type="checkbox"
+id="sound"
+>
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+</div>
+
+
+<!-- ACCOUNT -->
+
+<div class="card">
+
+<div class="title">
+⚠️ Account
+</div>
+
+
+<div class="row">
+
+<div class="info">
+
+<h3>
+Reset Settings
+</h3>
+
+<p>
+Restore all settings to default
+</p>
+
+</div>
+
+
+<button
+class="reset"
+onclick="resetSettings()">
+
+Reset
+
+</button>
+
+</div>
+
+
+<button
+class="save"
+onclick="saveSettings()">
+
+💾 Save Settings
+
+</button>
+
+
+<div
+class="message"
+id="message">
+
+</div>
+
+</div>
+
+
+<div class="footer">
+
+© 2026 Management Made Easy
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+/* SERVER */
+
+const SERVER = "http://localhost:8080";
+
+
+/* LOAD SETTINGS */
+
+async function loadSettings() {
+
+    try {
+
+        const response =
+            await fetch(
+                SERVER + "/api/settings"
+            );
+
+        const data =
+            await response.json();
+
+
+        document.getElementById(
+            "darkMode"
+        ).checked = data.darkMode;
+
+
+        document.getElementById(
+            "notifications"
+        ).checked = data.notifications;
+
+
+        document.getElementById(
+            "sound"
+        ).checked = data.sound;
+
+
+        document.getElementById(
+            "autoSave"
+        ).checked = data.autoSave;
+
+
+        document.getElementById(
+            "language"
+        ).value = data.language;
+
+
+        applyTheme(data.darkMode);
+
+
+    }
+
+    catch(error) {
+
+        showMessage(
+            "Backend is not running!"
+        );
+
+    }
+
+}
+
+
+/* SAVE SETTINGS */
+
+async function saveSettings() {
+
+
+    const settings = {
+
+        darkMode:
+            document.getElementById(
+                "darkMode"
+            ).checked,
+
+        notifications:
+            document.getElementById(
+                "notifications"
+            ).checked,
+
+        sound:
+            document.getElementById(
+                "sound"
+            ).checked,
+
+        autoSave:
+            document.getElementById(
+                "autoSave"
+            ).checked,
+
+        language:
+            document.getElementById(
+                "language"
+            ).value
+
+    };
+
+
+    try {
+
+        const response =
+            await fetch(
+
+                SERVER +
+                "/api/settings",
+
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body:
+                        JSON.stringify(
+                            settings
+                        )
+
+                }
+
+            );
+
+
+        const data =
+            await response.json();
+
+
+        showMessage(
+            data.message
+        );
+
+
+    }
+
+    catch(error) {
+
+        showMessage(
+            "Could not connect to Java backend!"
+        );
+
+    }
+
+}
+
+
+/* RESET */
+
+async function resetSettings() {
+
+
+    const confirmReset =
+        confirm(
+            "Reset all settings?"
+        );
+
+
+    if (!confirmReset)
+        return;
+
+
+    try {
+
+        const response =
+            await fetch(
+
+                SERVER +
+                "/api/reset",
+
+                {
+
+                    method: "POST"
+
+                }
+
+            );
+
+
+        const data =
+            await response.json();
+
+
+        showMessage(
+            data.message
+        );
+
+
+        loadSettings();
+
+
+    }
+
+    catch(error) {
+
+        showMessage(
+            "Backend is not running!"
+        );
+
+    }
+
+}
+
+
+/* THEME */
+
+function changeTheme() {
+
+    const dark =
+        document.getElementById(
+            "darkMode"
+        ).checked;
+
+
+    applyTheme(dark);
+
+}
+
+
+function applyTheme(dark) {
+
+    if(dark) {
+
+        document.body.classList.remove(
+            "light"
+        );
+
+    }
+
+    else {
+
+        document.body.classList.add(
+            "light"
+        );
+
+    }
+
+}
+
+
+/* MESSAGE */
+
+function showMessage(text) {
+
+    document.getElementById(
+        "message"
+    ).innerText = text;
+
+
+    setTimeout(() => {
+
+        document.getElementById(
+            "message"
+        ).innerText = "";
+
+    }, 3000);
+
+}
+
+
+/* START */
+
+loadSettings();
+
+</script>
+
 
 </body>
+
 </html>
