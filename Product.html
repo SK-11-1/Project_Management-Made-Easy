@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Made Easy - Products</title>
+
+```
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="Product.css">
+```
+
+</head>
+
+<body>
+
+```
+<!-- Sidebar -->
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">M</div>
+        <div>
+            <h2>Management</h2>
+            <span>Made Easy</span>
+        </div>
+    </div>
+
+    <nav>
+        <a href="dashboard.html">📊 Dashboard</a>
+
+    <a href="Product.html" class="active">📦 Products</a>
+
+    <a href="Receipt.html">🚚 Receipts</a>
+
+    <a href="deliveries.html">📤 Deliveries</a>
+
+    <a href="transfers.html">🔄 Transfers</a>
+
+    <a href="settings.html">⚙️ Settings</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <a href="#">👤 My Profile</a>
+        <a href="#">🚪 Logout</a>
+    </div>
+
+</aside>
+
+
+<!-- Main Content -->
+<main class="main">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div>
+            <h1>Products</h1>
+            <p>Manage and monitor all your inventory products.</p>
+        </div>
+
+        <div class="user">
+            <div class="avatar">A</div>
+            <div>
+                <strong>Admin</strong>
+                <small>Inventory Manager</small>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Product Controls -->
+    <section class="product-controls">
+
+        <div class="search-box">
+            🔍
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                onkeyup="searchProducts()"
+            >
+        </div>
+
+        <button class="add-product-btn" onclick="addProduct()">
+            + Add Product
+        </button>
+
+    </section>
+
+
+    <!-- Product Statistics -->
+    <section class="product-stats">
+
+        <div class="stat-card">
+            <span>Total Products</span>
+            <strong>1,248</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>In Stock</span>
+            <strong class="stat-green">973</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Low Stock</span>
+            <strong class="stat-orange">24</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Out of Stock</span>
+            <strong class="stat-red">251</strong>
+        </div>
+
+    </section>
+
+
+    <!-- Products Table -->
+    <section class="panel products-panel">
+
+        <div class="panel-header">
+            <div>
+                <h2>All Products</h2>
+                <p>View and manage your inventory</p>
+            </div>
+
+            <select id="categoryFilter" onchange="filterProducts()">
+                <option value="all">All Categories</option>
+                <option value="Raw Material">Raw Material</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Electronics">Electronics</option>
+            </select>
+        </div>
+
+
+        <div class="table-container">
+
+            <table id="productsTable">
+
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>SKU</th>
+                        <th>Category</th>
+                        <th>Stock</th>
+                        <th>Status</th>
+                        <th>Warehouse</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                   
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="Products.js"></script>
+
+</body>
+</html>

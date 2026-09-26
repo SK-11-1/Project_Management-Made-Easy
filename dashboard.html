@@ -1,0 +1,252 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Made Easy - Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">M</div>
+            <div>
+                <h2>Management</h2>
+                <span>Made Easy</span>
+            </div>
+        </div>
+
+        <nav>
+           <nav>
+    <a href="dashboard.html" class="active">📊 Dashboard</a>
+
+    <a href="Product.html">📦 Products</a>
+
+    <a href="Receipt.html">🚚 Receipts</a>
+
+    <a href="deliveries.html">📤 Deliveries</a>
+
+    <a href="transfers.html">🔄 Transfers</a>
+
+    <a href="settings.html">⚙️ Settings</a>
+</nav>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="#">👤 My Profile</a>
+            <a href="#">🚪 Logout</a>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- Top Bar -->
+        <header class="topbar">
+            <div>
+                <h1>Dashboard</h1>
+                <p>Welcome back! Here's what's happening with your inventory.</p>
+            </div>
+
+            <div class="user">
+                <div class="avatar">A</div>
+                <div>
+                    <strong>Admin</strong>
+                    <small>Inventory Manager</small>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- KPI Cards -->
+        <section class="cards">
+
+            <div class="card">
+                <div class="card-icon">📦</div>
+                <div>
+                    <p>Total Products</p>
+                    <h2>1,248</h2>
+                    <span class="green">+8.2% this month</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon warning">⚠️</div>
+                <div>
+                    <p>Low Stock Items</p>
+                    <h2>24</h2>
+                    <span class="orange">Needs attention</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon blue">📥</div>
+                <div>
+                    <p>Pending Receipts</p>
+                    <h2>18</h2>
+                    <span class="blue-text">Incoming stock</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon purple">🚚</div>
+                <div>
+                    <p>Pending Deliveries</p>
+                    <h2>12</h2>
+                    <span class="purple-text">Outgoing stock</span>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Middle Section -->
+        <section class="content-grid">
+
+            <!-- Recent Activity -->
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <h2>Recent Activity</h2>
+                        <p>Latest inventory operations</p>
+                    </div>
+
+                    <button>View All</button>
+                </div>
+
+                <div class="activity">
+
+                    <div class="activity-item">
+                        <div class="activity-icon incoming">↓</div>
+                        <div class="activity-info">
+                            <strong>Steel Rods received</strong>
+                            <span>50 units added to Main Warehouse</span>
+                        </div>
+                        <small>10 min ago</small>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon outgoing">↑</div>
+                        <div class="activity-info">
+                            <strong>Chairs delivered</strong>
+                            <span>10 units shipped to customer</span>
+                        </div>
+                        <small>35 min ago</small>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon transfer">↔</div>
+                        <div class="activity-info">
+                            <strong>Internal transfer</strong>
+                            <span>Main Warehouse → Production Rack</span>
+                        </div>
+                        <small>1 hour ago</small>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon adjustment">!</div>
+                        <div class="activity-info">
+                            <strong>Stock adjustment</strong>
+                            <span>3 kg Steel marked as damaged</span>
+                        </div>
+                        <small>2 hours ago</small>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- Stock Status -->
+            <div class="panel stock-panel">
+
+                <div class="panel-header">
+                    <div>
+                        <h2>Stock Status</h2>
+                        <p>Current inventory overview</p>
+                    </div>
+                </div>
+
+                <div class="stock-row">
+                    <div>
+                        <span>In Stock</span>
+                        <strong>78%</strong>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-fill green-fill" style="width: 78%;"></div>
+                    </div>
+                </div>
+
+                <div class="stock-row">
+                    <div>
+                        <span>Low Stock</span>
+                        <strong>15%</strong>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-fill orange-fill" style="width: 15%;"></div>
+                    </div>
+                </div>
+
+                <div class="stock-row">
+                    <div>
+                        <span>Out of Stock</span>
+                        <strong>7%</strong>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-fill red-fill" style="width: 7%;"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Quick Actions -->
+        <section class="panel quick-panel">
+
+            <div class="panel-header">
+                <div>
+                    <h2>Quick Actions</h2>
+                    <p>Manage your inventory faster</p>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+
+                <button>
+                    <span>➕</span>
+                    Add Product
+                </button>
+
+                <button>
+                    <span>📥</span>
+                    New Receipt
+                </button>
+
+                <button>
+                    <span>📤</span>
+                    New Delivery
+                </button>
+
+                <button>
+                    <span>🔄</span>
+                    Transfer Stock
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
+```
