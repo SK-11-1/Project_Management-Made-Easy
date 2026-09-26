@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Made Easy - Products</title>
+
+```
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="products.css">
+```
+
+</head>
+
+<body>
+
+```
+<!-- Sidebar -->
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">M</div>
+        <div>
+            <h2>Management</h2>
+            <span>Made Easy</span>
+        </div>
+    </div>
+
+    <nav>
+        <a href="index.html">📊 Dashboard</a>
+        <a href="products.html" class="active">📦 Products</a>
+        <a href="#">🚚 Receipts</a>
+        <a href="#">📤 Deliveries</a>
+        <a href="#">🔄 Transfers</a>
+        <a href="#">⚙️ Settings</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <a href="#">👤 My Profile</a>
+        <a href="#">🚪 Logout</a>
+    </div>
+
+</aside>
+
+
+<!-- Main Content -->
+<main class="main">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div>
+            <h1>Products</h1>
+            <p>Manage and monitor all your inventory products.</p>
+        </div>
+
+        <div class="user">
+            <div class="avatar">A</div>
+            <div>
+                <strong>Admin</strong>
+                <small>Inventory Manager</small>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Product Controls -->
+    <section class="product-controls">
+
+        <div class="search-box">
+            🔍
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                onkeyup="searchProducts()"
+            >
+        </div>
+
+        <button class="add-product-btn" onclick="addProduct()">
+            + Add Product
+        </button>
+
+    </section>
+
+
+    <!-- Product Statistics -->
+    <section class="product-stats">
+
+        <div class="stat-card">
+            <span>Total Products</span>
+            <strong>1,248</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>In Stock</span>
+            <strong class="stat-green">973</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Low Stock</span>
+            <strong class="stat-orange">24</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Out of Stock</span>
+            <strong class="stat-red">251</strong>
+        </div>
+
+    </section>
+
+
+    <!-- Products Table -->
+    <section class="panel products-panel">
+
+        <div class="panel-header">
+            <div>
+                <h2>All Products</h2>
+                <p>View and manage your inventory</p>
+            </div>
+
+            <select id="categoryFilter" onchange="filterProducts()">
+                <option value="all">All Categories</option>
+                <option value="Raw Material">Raw Material</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Electronics">Electronics</option>
+            </select>
+        </div>
+
+
+        <div class="table-container">
+
+            <table id="productsTable">
+
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>SKU</th>
+                        <th>Category</th>
+                        <th>Stock</th>
+                        <th>Status</th>
+                        <th>Warehouse</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>
+                            <div class="product-name">
+                                <div class="product-icon">🔩</div>
+                                <strong>Steel Rods</strong>
+                            </div>
+                        </td>
+
+                        <td>STL-001</td>
+                        <td>Raw Material</td>
+                        <td>250 units</td>
+
+                        <td>
+                            <span class="status in-stock">
+                                In Stock
+                            </span>
+                        </td>
+
+                        <td>Main Warehouse</td>
+
+                        <td>
+                            <button class="action-btn">View</button>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <div class="product-name">
+                                <div class="product-icon">🪑</div>
+                                <strong>Office Chairs</strong>
+                            </div>
+                        </td>
+
+                        <td>CHR-102</td>
+                        <td>Furniture</td>
+                        <td>18 units</td>
+
+                        <td>
+                            <span class="status low-stock">
+                                Low Stock
+                            </span>
+                        </td>
+
+                        <td>Main Warehouse</td>
+
+                        <td>
+                            <button class="action-btn">View</button>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <div class="product-name">
+                                <div class="product-icon">💻</div>
+                                <strong>Laptops</strong>
+                            </div>
+                        </td>
+
+                        <td>LAP-205</td>
+                        <td>Electronics</td>
+                        <td>0 units</td>
+
+                        <td>
+                            <span class="status out-stock">
+                                Out of Stock
+                            </span>
+                        </td>
+
+                        <td>Production Rack</td>
+
+                        <td>
+                            <button class="action-btn">View</button>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <div class="product-name">
+                                <div class="product-icon">🧰</div>
+                                <strong>Tool Kit</strong>
+                            </div>
+                        </td>
+
+                        <td>TLK-301</td>
+                        <td>Raw Material</td>
+                        <td>85 units</td>
+
+                        <td>
+                            <span class="status in-stock">
+                                In Stock
+                            </span>
+                        </td>
+
+                        <td>Main Warehouse</td>
+
+                        <td>
+                            <button class="action-btn">View</button>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <div class="product-name">
+                                <div class="product-icon">🖥️</div>
+                                <strong>Monitors</strong>
+                            </div>
+                        </td>
+
+                        <td>MON-410</td>
+                        <td>Electronics</td>
+                        <td>7 units</td>
+
+                        <td>
+                            <span class="status low-stock">
+                                Low Stock
+                            </span>
+                        </td>
+
+                        <td>Production Rack</td>
+
+                        <td>
+                            <button class="action-btn">View</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+    function searchProducts() {
+
+        let input =
+            document.getElementById("searchInput")
+            .value
+            .toLowerCase();
+
+        let rows =
+            document.querySelectorAll("#productsTable tbody tr");
+
+        rows.forEach(row => {
+
+            let text = row.innerText.toLowerCase();
+
+            row.style.display =
+                text.includes(input) ? "" : "none";
+
+        });
+
+    }
+
+
+    function filterProducts() {
+
+        let filter =
+            document.getElementById("categoryFilter").value;
+
+        let rows =
+            document.querySelectorAll("#productsTable tbody tr");
+
+        rows.forEach(row => {
+
+            let category = row.cells[2].innerText;
+
+            if (filter === "all" || category === filter) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+
+        });
+
+    }
+
+
+    function addProduct() {
+
+        alert("Add Product form coming next!");
+
+    }
+
+</script>
+```
+
+</body>
+</html>
