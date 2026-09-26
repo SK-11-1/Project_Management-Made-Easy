@@ -1,0 +1,773 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Transfers | Project Management Made Easy</title>
+
+    <!-- Connect CSS -->
+    <link rel="stylesheet" href="transfer.css">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            Project<span>Flow</span>
+        </div>
+
+        <p class="menu-title">WORKSPACE</p>
+
+        <nav class="menu">
+
+            <a href="index.html">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="#">
+                <span>▣</span>
+                Projects
+            </a>
+
+            <a href="#">
+                <span>♟</span>
+                Team
+            </a>
+
+            <a href="transfer.html" class="active">
+                <span>↗</span>
+                Transfers
+            </a>
+
+        </nav>
+
+
+        <p class="menu-title">MANAGEMENT</p>
+
+        <nav class="menu">
+
+            <a href="#">
+                <span>▤</span>
+                Reports
+            </a>
+
+            <a href="#">
+                <span>⚙</span>
+                Settings
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="help-box">
+
+                <div class="help-icon">?</div>
+
+                <div>
+                    <strong>Need help?</strong>
+                    <p>Contact support</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="mobile-title">
+                Transfers
+            </div>
+
+            <div class="topbar-right">
+
+                <button class="notification">
+                    ♢
+                    <span></span>
+                </button>
+
+                <div class="profile">
+
+                    <div class="profile-circle">
+                        A
+                    </div>
+
+                    <div class="profile-info">
+                        <strong>Anushka</strong>
+                        <small>Project Manager</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="content">
+
+
+            <!-- PAGE HEADING -->
+
+            <div class="page-heading">
+
+                <div>
+
+                    <p class="breadcrumb">
+                        Workspace / Transfers
+                    </p>
+
+                    <h1>Transfers</h1>
+
+                    <p class="subtitle">
+                        Track and manage project deliveries and handovers.
+                    </p>
+
+                </div>
+
+                <button class="new-btn">
+                    + New Transfer
+                </button>
+
+            </div>
+
+
+            <!-- ================= STAT CARDS ================= -->
+
+            <div class="stats">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+                        <span>Total Transfers</span>
+
+                        <div class="stat-icon blue-icon">
+                            ↗
+                        </div>
+                    </div>
+
+                    <h2>24</h2>
+
+                    <p class="stat-change positive">
+                        ↑ 12% <span>from last month</span>
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+                        <span>Completed</span>
+
+                        <div class="stat-icon green-icon">
+                            ✓
+                        </div>
+                    </div>
+
+                    <h2>18</h2>
+
+                    <p class="stat-change positive">
+                        ↑ 8% <span>from last month</span>
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+                        <span>Pending</span>
+
+                        <div class="stat-icon orange-icon">
+                            ◷
+                        </div>
+                    </div>
+
+                    <h2>4</h2>
+
+                    <p class="stat-change neutral">
+                        2 <span>due this week</span>
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-top">
+                        <span>In Progress</span>
+
+                        <div class="stat-icon purple-icon">
+                            ◌
+                        </div>
+                    </div>
+
+                    <h2>2</h2>
+
+                    <p class="stat-change neutral">
+                        Active <span>transfers</span>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MAIN GRID ================= -->
+
+            <div class="dashboard-grid">
+
+
+                <!-- CREATE TRANSFER -->
+
+                <div class="card create-card">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <h2>Create Transfer</h2>
+
+                            <p>
+                                Assign a task or deliverable to a team member.
+                            </p>
+                        </div>
+
+                        <div class="card-symbol">
+                            ↗
+                        </div>
+
+                    </div>
+
+
+                    <form id="transferForm">
+
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="project">
+                                    Project
+                                </label>
+
+                                <select id="project" required>
+
+                                    <option value="">
+                                        Select project
+                                    </option>
+
+                                    <option>
+                                        Website Development
+                                    </option>
+
+                                    <option>
+                                        Mobile Application
+                                    </option>
+
+                                    <option>
+                                        Project Management System
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="date">
+                                    Due Date
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="date"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="from">
+                                    From
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="from"
+                                    placeholder="Sender name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="to">
+                                    Transfer To
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="to"
+                                    placeholder="Receiver name"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="item">
+                                Item / Task
+                            </label>
+
+                            <input
+                                type="text"
+                                id="item"
+                                placeholder="e.g. UI Design Files"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="description">
+                                Description
+                            </label>
+
+                            <textarea
+                                id="description"
+                                placeholder="Add transfer details...">
+                            </textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="submit-btn">
+
+                            Create Transfer
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+                <!-- ================= RECENT TRANSFERS ================= -->
+
+                <div class="card recent-card">
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <h2>Recent Transfers</h2>
+
+                            <p>
+                                Latest project deliveries.
+                            </p>
+
+                        </div>
+
+                        <button class="view-btn">
+                            View all →
+                        </button>
+
+                    </div>
+
+
+                    <div class="transfer-list" id="transferList">
+
+
+                        <!-- TRANSFER 1 -->
+
+                        <div class="transfer-item">
+
+                            <div class="transfer-left">
+
+                                <div class="transfer-icon">
+                                    UI
+                                </div>
+
+                                <div class="transfer-info">
+
+                                    <h3>
+                                        UI Design Files
+                                    </h3>
+
+                                    <p>
+                                        Anushka
+                                        <span>→</span>
+                                        Rahul
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="transfer-right">
+
+                                <span class="status completed">
+                                    Completed
+                                </span>
+
+                                <small>
+                                    Today
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- TRANSFER 2 -->
+
+                        <div class="transfer-item">
+
+                            <div class="transfer-left">
+
+                                <div class="transfer-icon purple">
+                                    API
+                                </div>
+
+                                <div class="transfer-info">
+
+                                    <h3>
+                                        Backend API
+                                    </h3>
+
+                                    <p>
+                                        Rahul
+                                        <span>→</span>
+                                        Aman
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="transfer-right">
+
+                                <span class="status pending">
+                                    Pending
+                                </span>
+
+                                <small>
+                                    Tomorrow
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- TRANSFER 3 -->
+
+                        <div class="transfer-item">
+
+                            <div class="transfer-left">
+
+                                <div class="transfer-icon orange">
+                                    DB
+                                </div>
+
+                                <div class="transfer-info">
+
+                                    <h3>
+                                        Database Module
+                                    </h3>
+
+                                    <p>
+                                        Aman
+                                        <span>→</span>
+                                        Anushka
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="transfer-right">
+
+                                <span class="status progress">
+                                    In Progress
+                                </span>
+
+                                <small>
+                                    Sep 28
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- TRANSFER 4 -->
+
+                        <div class="transfer-item">
+
+                            <div class="transfer-left">
+
+                                <div class="transfer-icon green">
+                                    DOC
+                                </div>
+
+                                <div class="transfer-info">
+
+                                    <h3>
+                                        Project Report
+                                    </h3>
+
+                                    <p>
+                                        Anushka
+                                        <span>→</span>
+                                        Team
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="transfer-right">
+
+                                <span class="status completed">
+                                    Completed
+                                </span>
+
+                                <small>
+                                    Sep 25
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ACTIVITY ================= -->
+
+            <div class="card activity-card">
+
+                <div class="card-heading">
+
+                    <div>
+                        <h2>Transfer Activity</h2>
+
+                        <p>
+                            Recent activity across your projects.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-list">
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-dot blue-dot"></div>
+
+                        <div class="activity-text">
+
+                            <strong>
+                                Anushka created a new transfer
+                            </strong>
+
+                            <p>
+                                UI Design Files → Rahul
+                            </p>
+
+                        </div>
+
+                        <time>
+                            10 min ago
+                        </time>
+
+                    </div>
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-dot green-dot"></div>
+
+                        <div class="activity-text">
+
+                            <strong>
+                                Backend API transfer completed
+                            </strong>
+
+                            <p>
+                                Rahul received the project files.
+                            </p>
+
+                        </div>
+
+                        <time>
+                            1 hour ago
+                        </time>
+
+                    </div>
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-dot orange-dot"></div>
+
+                        <div class="activity-text">
+
+                            <strong>
+                                Database Module is in progress
+                            </strong>
+
+                            <p>
+                                Assigned to Anushka.
+                            </p>
+
+                        </div>
+
+                        <time>
+                            3 hours ago
+                        </time>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        const form =
+            document.getElementById("transferForm");
+
+        const list =
+            document.getElementById("transferList");
+
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            const item =
+                document.getElementById("item").value;
+
+            const from =
+                document.getElementById("from").value;
+
+            const to =
+                document.getElementById("to").value;
+
+            const date =
+                document.getElementById("date").value;
+
+
+            const newTransfer =
+                document.createElement("div");
+
+            newTransfer.className =
+                "transfer-item";
+
+
+            newTransfer.innerHTML = `
+
+                <div class="transfer-left">
+
+                    <div class="transfer-icon">
+                        NEW
+                    </div>
+
+                    <div class="transfer-info">
+
+                        <h3>${item}</h3>
+
+                        <p>
+                            ${from}
+                            <span>→</span>
+                            ${to}
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="transfer-right">
+
+                    <span class="status pending">
+                        Pending
+                    </span>
+
+                    <small>
+                        ${date}
+                    </small>
+
+                </div>
+
+            `;
+
+
+            list.prepend(newTransfer);
+
+
+            form.reset();
+
+        });
+
+    </script>
+
+</body>
+
+</html>
+```
