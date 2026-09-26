@@ -1,0 +1,389 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f7fb;
+    color: #1f2937;
+    display: flex;
+}
+
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background: #111827;
+    color: white;
+    padding: 25px 15px;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo h2 {
+    font-size: 21px;
+}
+
+.logo span {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar nav a,
+.logout a {
+    text-decoration: none;
+    color: #d1d5db;
+    padding: 13px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: #2563eb;
+    color: white;
+}
+
+.logout {
+    position: absolute;
+    bottom: 25px;
+    left: 15px;
+    right: 15px;
+}
+
+.logout a {
+    display: block;
+}
+
+.logout a:hover {
+    background: #374151;
+}
+
+
+/* ================= MAIN CONTENT ================= */
+
+.main-content {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    min-height: 100vh;
+}
+
+
+/* ================= TOPBAR ================= */
+
+.topbar {
+    background: white;
+    padding: 22px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.topbar h1 {
+    font-size: 27px;
+    margin-bottom: 5px;
+}
+
+.topbar p {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.user-mini {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-mini strong {
+    display: block;
+    font-size: 14px;
+}
+
+.user-mini small {
+    color: #6b7280;
+}
+
+.mini-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+
+/* ================= PROFILE CONTAINER ================= */
+
+.profile-container {
+    padding: 30px 35px;
+    max-width: 1100px;
+}
+
+
+/* ================= PROFILE CARD ================= */
+
+.profile-card {
+    background: white;
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 22px;
+    border: 1px solid #e5e7eb;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.profile-header h2 {
+    margin-bottom: 7px;
+}
+
+.profile-header p {
+    color: #6b7280;
+}
+
+
+/* ================= STATS ================= */
+
+.profile-stats {
+    display: flex;
+    gap: 60px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.profile-stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.profile-stats strong {
+    font-size: 22px;
+}
+
+.profile-stats span {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+
+/* ================= INFORMATION CARD ================= */
+
+.information-card {
+    background: white;
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 22px;
+    border: 1px solid #e5e7eb;
+}
+
+.card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.card-title h2 {
+    font-size: 19px;
+}
+
+.card-title button {
+    border: none;
+    background: #eef2ff;
+    color: #2563eb;
+    padding: 9px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.card-title button:hover {
+    background: #dbeafe;
+}
+
+
+/* ================= FORM ================= */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.input-group input {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    outline: none;
+    font-size: 14px;
+}
+
+.input-group input:focus {
+    border-color: #2563eb;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.cancel-btn,
+.save-btn {
+    padding: 11px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.cancel-btn {
+    background: white;
+    border: 1px solid #d1d5db;
+}
+
+.save-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+}
+
+.save-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* ================= ACCOUNT ================= */
+
+.account-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px 0;
+    border-top: 1px solid #e5e7eb;
+}
+
+.account-row strong {
+    font-size: 14px;
+}
+
+.account-row p {
+    color: #6b7280;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.active-status {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        width: 190px;
+    }
+
+    .main-content {
+        margin-left: 190px;
+        width: calc(100% - 190px);
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-stats {
+        gap: 30px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .topbar {
+        padding: 18px;
+    }
+
+    .profile-container {
+        padding: 20px;
+    }
+
+    .user-mini {
+        display: none;
+    }
+}
